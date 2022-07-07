@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: hello-world 
+  name: sampleapp 
 spec:
   replicas: #replicaNo#
   selector:
     matchLabels:
-      app: hello-world
+      app: sampleapp
   template:
     metadata:
       labels:
-        app: hello-world 
+        app: sampleapp 
     spec:
       containers:
-        - name: hello-world 
-          image: crappsample.azurecr.io/hello-world
+        - name: sampleapp
+          image: crappsample.azurecr.io/sampleapp
           ports:
           - containerPort: 80
