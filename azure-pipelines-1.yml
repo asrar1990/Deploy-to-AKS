@@ -32,6 +32,24 @@ stages:
         targetPath: '$(Pipeline.Workspace)/s/kubernetes'
         artifact: 'manifests'
         publishLocation: 'pipeline'
+    - task: HelmDeploy@0
+      displayName: Helm install
+      inputs:
+        connectionType: 'Azure Resource Manager'
+        azureSubscription: 'Free Trial (e2fba2b7-9a10-4a10-8a17-720c878b8e00)'
+        azureResourceGroup: 'group-resource'
+        kubernetesCluster: 'webappcluster'
+        useClusterAdmin: true
+        namespace: 'default'
+        command: 'install'
+        chartType: 'FilePath'
+        chartPath: 'Application/charts/sampleapp'
+    - task: HelmDeploy@0
+      displayName: Helm package
+      inputs:
+        command: 'package'
+        chartPath: 'Application/charts/sampleapp'
+        destination: '$(Build.ArtifactStagingDirectory)Application/charts/sampleapp'
         
 - stage: Deploy
   displayName: Deploy to Dev
