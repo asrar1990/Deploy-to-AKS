@@ -67,3 +67,9 @@ stages:
         command: 'install'
         chartType: 'FilePath'
         chartPath: 'Application/charts/sampleapp'
+    - task: HelmDeploy@0
+      displayName: Helm package
+      inputs:
+        command: 'package'
+        chartPath: 'Application/charts/sampleapp'
+        destination: '$(Build.ArtifactStagingDirectory)Application/charts/sampleapp'
