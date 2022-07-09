@@ -7,9 +7,6 @@ resources:
 variables:
   imageRepo: sampleapp
   tag: '$(Build.BuildId)'
-  azureSubscriptionEndpoint: Free Trial (e2fba2b7-9a10-4a10-8a17-720c878b8e00)
-  azureResourceGroup: group-resource
-  kubernetesCluster: webappcluster
 
 stages:
 - stage: Build
