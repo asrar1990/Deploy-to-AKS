@@ -7,7 +7,9 @@ resources:
 variables:
   imageRepo: sampleapp
   tag: '$(Build.BuildId)'
-
+  azureSubscriptionEndpoint: Free Trial (bf72eddf-96d2-47a1-b015-d747ee1d48e9)
+  azureResourceGroup: AKS_BN_1
+  kubernetesCluster: First_BN_AKS
 stages:
 - stage: Build
   displayName: Build image
